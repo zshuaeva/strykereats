@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
     "recipeitems.apps.RecipeitemsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 
 ROOT_URLCONF = "recipepage.urls"
 
@@ -70,6 +72,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "recipepage.wsgi.application"
 
+
+# settings.py
+
+MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",  # Add this line before CommonMiddleware
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+# settings.py
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
