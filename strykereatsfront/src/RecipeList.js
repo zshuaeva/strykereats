@@ -15,6 +15,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import './RecipeList.css'
+import { ClassNames } from '@emotion/react';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -44,7 +46,7 @@ function RecipeList() {
   }, []);
 
   return (
-    <>
+    <div className="recipeApp">
       <h1>Recipe List</h1>
         {recipes.map((recipe, index) => (
           <li key={index}>
@@ -55,11 +57,11 @@ function RecipeList() {
 
 
 
-<Card sx={{ maxWidth: 345 }}>
-<CardHeader
+<Card sx={{ maxWidth: 345 }} className="card-container">
+<CardHeader className="cardhead"
   avatar={
-    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-      R
+    <Avatar sx={{ bgcolor: red[0] }} aria-label="recipe">
+      Eat
     </Avatar>
   }
   action={
@@ -71,13 +73,15 @@ function RecipeList() {
   subheader={recipe.cook_type}
 />
 <CardMedia
+className="cardmedia"
   component="img"
   height="194"
   image="/static/images/cards/paella.jpg"
   alt="photo api search string go here"
 />
-<CardContent>
-  <Typography variant="body2" color="text.secondary">
+<CardContent className="card-content">
+  <Typography className="typo1"
+  variant="body2">
 loren ipsum mothafucking dish description go here and loren ipsum and shit
   </Typography>
 </CardContent>
@@ -122,7 +126,7 @@ loren ipsum mothafucking dish description go here and loren ipsum and shit
 </Card>
 </li>
         ))}
-</>
+</div>
 );//end of return
 }; //end of function
 

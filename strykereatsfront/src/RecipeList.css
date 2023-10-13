@@ -1,0 +1,26 @@
+
+
+.recipeApp{
+background-color: rgb(102, 82, 66);
+
+}
+
+.cardhead{
+  background-color: red;
+  border-radius: 50px;
+}
+
+.cardmedia{
+  background-color: green;
+  border-radius: 50px;
+}
+
+.typo1{
+  color: teal;
+
+}
+
+.card-content{
+  background-color: pink;
+  border-radius: 50px;
+}
