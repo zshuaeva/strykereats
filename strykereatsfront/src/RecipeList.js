@@ -16,7 +16,6 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import './RecipeList.css'
-import { ClassNames } from '@emotion/react';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -47,9 +46,8 @@ function RecipeList() {
 
   return (
     <div className="recipeApp">
-      <h1>Recipe List</h1>
         {recipes.map((recipe, index) => (
-          <li key={index}>
+          <div className="new-card" key={index}>
             {/* <h3>{recipe.recipe_title}</h3>
             <p>Recipe made for  {recipe.cook_type}</p>
             <p>Cooktime: {recipe.recipe_length} Minutes</p>
@@ -77,12 +75,12 @@ className="cardmedia"
   component="img"
   height="194"
   image="/static/images/cards/paella.jpg"
-  alt="photo api search string go here"
+  alt="API Photo"
 />
 <CardContent className="card-content">
   <Typography className="typo1"
   variant="body2">
-loren ipsum mothafucking dish description go here and loren ipsum and shit
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </Typography>
 </CardContent>
 <CardActions disableSpacing>
@@ -105,26 +103,21 @@ loren ipsum mothafucking dish description go here and loren ipsum and shit
   <CardContent>
     <Typography paragraph>Recipe Directions:</Typography>
     <Typography paragraph>
-    loren ipsum mothafucking dish directions go here and loren ipsum and shit
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </Typography>
     <Typography paragraph>
-    loren ipsum mothafucking dish directions go here and loren ipsum and shitloren ipsum mothafucking dish directions go here and loren ipsum and shitloren ipsum mothafucking dish directions go here and loren ipsum and shitloren ipsum mothafucking dish directions go here and loren ipsum and shitloren ipsum mothafucking dish directions go here and loren ipsum and shitloren ipsum mothafucking dish directions go here and loren ipsum and shitloren ipsum mothafucking dish directions go here and loren ipsum and shitloren ipsum mothafucking dish directions go here and loren ipsum and shitloren ipsum mothafucking dish directions go here and loren ipsum and shitloren ipsum mothafucking dish directions go here and loren ipsum and shit
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </Typography>
     <Typography paragraph>
-      Add rice and stir very gently to distribute. Top with artichokes and
-      peppers, and cook without stirring, until most of the liquid is absorbed,
-      15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and
-      mussels, tucking them down into the rice, and cook again without
-      stirring, until mussels have opened and rice is just tender, 5 to 7
-      minutes more. (Discard any mussels that don&apos;t open.)
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </Typography>
     <Typography>
-      Set aside off of the heat to let rest for 10 minutes, and then serve.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </Typography>
   </CardContent>
 </Collapse>
 </Card>
-</li>
+</div>
         ))}
 </div>
 );//end of return
