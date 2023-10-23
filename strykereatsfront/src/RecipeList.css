@@ -1,18 +1,19 @@
 
 
+.new-card {
+size: small;
+}
 .recipeApp{
-background-color: rgb(102, 82, 66);
+background-color: white;
 
 }
 
 .cardhead{
   background-color: red;
-  border-radius: 50px;
 }
 
 .cardmedia{
   background-color: green;
-  border-radius: 50px;
 }
 
 .typo1{
@@ -22,5 +23,4 @@ background-color: rgb(102, 82, 66);
 
 .card-content{
   background-color: pink;
-  border-radius: 50px;
 }
