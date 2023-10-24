@@ -31,6 +31,8 @@ const ExpandMore = styled((props) => {
 function RecipeList() {
   const [recipes, setRecipes] = useState([]);
   const [expanded, setExpanded] = React.useState(false);
+  const [imageURLs, setImageURLs] = useState({});
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -44,39 +46,68 @@ function RecipeList() {
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
-  return (
-    <div className="recipeApp">
+  useEffect(() => {
+    const getImageURLs = async () => {
+      const imageURLs = {};
+      for (const recipe of recipes) {
+        try {
+          const url = await fetchPexelsImage(recipe.recipe_title);
+          imageURLs[recipe.recipe_title] = url;
+        } catch (error) {
+          console.error('Error fetching image from Pexels:', error);
+        }
+      }
+      setImageURLs(imageURLs);
+    };
+
+    getImageURLs();
+  }, [recipes]);
+
+
+
+  const fetchPexelsImage = async (searchTerm) => {
+    const apiKey = 'kuiZ1yQM5BWjKufVXL9LeVhvpfcD2kIjpQvFl1kOG8fYD7u54zYDeqsh';
+    const apiUrl = `https://api.pexels.com/v1/search?query=${encodeURIComponent(searchTerm)}`;
+    const response = await fetch(apiUrl, {
+      headers: {
+        Authorization: `${apiKey}`,
+      },
+    });
+    const data = await response.json();
+    return data.photos[0].src.medium;
+  };
+
+
+
+
+    return (
+      <div className="recipeApp">
         {recipes.map((recipe, index) => (
           <div className="new-card" key={index}>
-            {/* <h3>{recipe.recipe_title}</h3>
-            <p>Recipe made for  {recipe.cook_type}</p>
-            <p>Cooktime: {recipe.recipe_length} Minutes</p>
-            <p>recipe added: {recipe.date_added} </p> */}
-
-
-
-<Card sx={{ maxWidth: 345 }} className="card-container">
-<CardHeader className="cardhead"
-  avatar={
-    <Avatar sx={{ bgcolor: red[0] }} aria-label="recipe">
-      Eat
-    </Avatar>
-  }
-  action={
-    <IconButton aria-label="settings">
-      <MoreVertIcon />
-    </IconButton>
-  }
-  title= {recipe.recipe_title}
-  subheader={recipe.cook_type}
-/>
+            <Card sx={{ maxWidth: 345 }} className="card-container">
+              <CardHeader
+                className="cardhead"
+                avatar={
+                  <Avatar sx={{ bgcolor: red[0] }} aria-label="recipe">
+                    Eat
+                  </Avatar>
+                }
+                action={
+                  <IconButton aria-label="settings">
+                    <MoreVertIcon />
+                  </IconButton>
+                }
+                title={recipe.recipe_title}
+                subheader={recipe.cook_type}
+              />
 <CardMedia
-className="cardmedia"
+  className="cardmedia"
   component="img"
   height="194"
-  image="/static/images/cards/paella.jpg"
+  image={imageURLs[recipe.recipe_title]}
   alt="API Photo"
 />
+
 <CardContent className="card-content">
   <Typography className="typo1"
   variant="body2">
