@@ -100,6 +100,8 @@ function RecipeList() {
                 title={recipe.recipe_title}
                 subheader={recipe.cook_type}
               />
+
+<div className="soloCard">
 <CardMedia
   className="cardmedia"
   component="img"
@@ -107,7 +109,7 @@ function RecipeList() {
   image={imageURLs[recipe.recipe_title]}
   alt="API Photo"
 />
-
+</div>
 <CardContent className="card-content">
   <Typography className="typo1"
   variant="body2">
